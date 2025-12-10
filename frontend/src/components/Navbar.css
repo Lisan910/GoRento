@@ -1,0 +1,166 @@
+/* Custom CSS Properties for Dark Theme */
+:root {
+  --navbar-bg: #ffffff;
+  --pill-container-bg: #2a2a2a;
+  --link-color: #f1f1f1;
+  --selected-bg: #4a4a4a;
+  --hover-bg: #3c3c3c;
+  --pill-radius: 40px;
+}
+
+/* --- Main Container & Pill Wrapper --- */
+
+.app-navbar-container {
+  /* Aligns the pill container in the center of the screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  background: var(--navbar-bg); /* Dark background for the whole page/header area */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
+  /* Add subtle background pattern/effect if desired, similar to image */
+  /* background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px; */
+}
+
+.navbar-pill-wrapper {
+  display: flex;
+  align-items: center;
+  
+  /* The dark pill container */
+  background: var(--pill-container-bg);
+  border-radius: var(--pill-radius);
+  /* Inner shadow or border for depth */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); 
+  padding: 8px; /* Padding inside the dark container */
+  gap: 15px;
+   /* Space between brand and links group */
+}
+
+
+/* --- Brand Text --- */
+
+.navbar-brand-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--link-color);
+  letter-spacing: -0.5px;
+  padding: 0 15px;
+  transition: color 0.2s ease-in-out;
+}
+
+
+/* --- Links Group --- */
+
+.navbar-links-group {
+  display: flex;
+  align-items: center;
+  /* Use a separate div for links to control the segmented background */
+  background: #333; /* Slightly lighter inner background for contrast */
+  border-radius: calc(var(--pill-radius) - 8px); /* Rounded corners for inner group */
+  padding: 5px; /* Small padding inside the links group */
+}
+
+.user-welcome-text {
+  font-size: 14px;
+  color: #999; 
+  font-weight: 400;
+  padding: 0 15px;
+  border-right: 1px solid #444; /* Separator */
+  margin-right: 10px;
+}
+
+
+/* --- Base Link Style --- */
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content in pill button */
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: calc(var(--pill-radius) - 10px); /* Individual pill shape */
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--link-color);
+  background-color: transparent; /* Default state */
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s, transform 0.1s;
+}
+
+.link-icon {
+  font-size: 16px;
+}
+
+/* --- Link States (Hover/Selected) --- */
+
+.nav-link:hover {
+  background-color: var(--hover-bg);
+  transform: translateY(-1px); /* Slight lift on hover */
+}
+
+/* Selected (Active) Link State - Lighter color for 'Awards' in the image */
+.nav-link.selected {
+  background-color: var(--selected-bg);
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific styling for the Logout button to stand out slightly */
+.nav-link.logout-link {
+  background-color: #444; /* Darker than normal hover, but not bright red */
+  color: #ff9999;
+  margin-left: 10px; /* Separator space */
+}
+.nav-link.logout-link:hover {
+  background-color: #666; 
+  color: #ff6666;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+  .app-navbar-container {
+    padding: 10px 0;
+  }
+  
+  .navbar-pill-wrapper {
+    flex-direction: column; /* Stack vertically on smaller screens */
+    border-radius: 15px;
+    width: 95%; /* Take up most of the width */
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .navbar-links-group {
+    flex-wrap: wrap; /* Allow links to wrap */
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 13px;
+    flex-grow: 1; /* Links take up available space */
+  }
+
+  .user-welcome-text {
+    width: 100%;
+    text-align: center;
+    border-right: none;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    margin-right: 0;
+  }
+}

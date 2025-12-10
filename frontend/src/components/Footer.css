@@ -1,0 +1,179 @@
+/* ------------------------------------------------ */
+/* --- PREMIUM FOOTER STYLES --- */
+/* ------------------------------------------------ */
+:root {
+  --footer-bg: #1f2937; /* Charcoal/Dark Slate Gray */
+  --footer-text: #e5e7eb; /* Light Gray Text */
+  --footer-accent: #3b82f6; /* Primary Blue Accent */
+  --footer-border: #374151; /* Darker border color */
+  --footer-link-hover: #ffffff;
+}
+
+.rental-footer-premium {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  width: 100%;
+}
+
+.footer-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: grid;
+  /* 3 columns: 2/5 (brand) | 1/5 (links) | 2/5 (contact) */
+  grid-template-columns: 2fr 1fr 2fr;
+  gap: 30px;
+  border-bottom: 1px solid var(--footer-border);
+}
+
+.footer-section {
+  padding: 0 15px;
+}
+
+.footer-section h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--footer-link-hover);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- 1. Brand Info --- */
+.brand-info {
+  border-right: 1px solid var(--footer-border);
+}
+
+.footer-logo-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--footer-accent);
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+}
+
+.brand-info p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 15px;
+  color: #a1a1aa; /* Muted gray */
+}
+
+.social-links {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: var(--footer-text);
+  font-size: 1.4rem;
+  transition: color 0.3s ease, transform 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--footer-accent);
+  transform: translateY(-3px);
+}
+
+/* --- 2 & 3. Quick Links & Contact Info --- */
+.quick-links ul,
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.quick-links li,
+.contact-info li {
+  margin-bottom: 12px;
+}
+
+.quick-links a {
+  color: var(--footer-text);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease, padding-left 0.2s;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+}
+
+.quick-links a:hover {
+  color: var(--footer-accent);
+  border-bottom: 1px solid var(--footer-accent);
+  padding-left: 5px;
+}
+
+.contact-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 1rem;
+}
+
+.contact-info svg {
+  color: var(--footer-accent);
+  margin-top: 2px;
+}
+
+/* --- Copyright Strip --- */
+.footer-copyright-strip {
+  text-align: center;
+  padding: 20px 20px;
+  background-color: #111827; /* Slightly darker strip */
+  font-size: 0.85rem;
+  color: #9ca3af;
+  font-weight: 300;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 900px) {
+  .footer-content-wrapper {
+    grid-template-columns: 1fr 1fr; /* Two columns on medium screens */
+  }
+  
+  .brand-info {
+    grid-column: 1 / span 2; /* Brand spans two columns */
+    border-right: none;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--footer-border);
+  }
+
+  .quick-links {
+    padding-top: 20px;
+  }
+  
+  .contact-info {
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-content-wrapper {
+    grid-template-columns: 1fr; /* Stack all sections vertically on small screens */
+    gap: 20px;
+  }
+
+  .brand-info {
+    grid-column: 1;
+    border-bottom: 1px solid var(--footer-border);
+    padding-bottom: 30px;
+  }
+  
+  .quick-links {
+    border-bottom: 1px solid var(--footer-border);
+    padding-bottom: 20px;
+    padding-top: 0;
+  }
+
+  .footer-section h4 {
+      margin-bottom: 15px;
+  }
+}

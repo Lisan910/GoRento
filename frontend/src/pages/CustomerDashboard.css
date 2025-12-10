@@ -1,0 +1,218 @@
+/* General Layout and Typography from CarDetails.css */
+.customer-dashboard-page-wrapper {
+  max-width: 1500px;
+  background-color: #f7f9fc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.customer-dashboard-main-content {
+  padding: 0;
+}
+
+/* Reusing CarDetails Section Styles, but reducing bottom margin */
+.detail-section {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  /* Reduced from 25px to 15px for tighter grouping */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  /* Slightly lighter shadow */
+}
+
+.section-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e88e5;
+  border-bottom: 2px solid #e1f5fe;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  /* Reduced margin below heading */
+  display: flex;
+  align-items: center;
+}
+
+.icon-spacer {
+  margin-right: 8px;
+}
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  background-color: #cfd8dc;
+  margin: 15px 0;
+  /* Reduced margin around dividers */
+}
+
+
+/* --- Hero Section (The header) --- */
+.hero-section {
+  background: url('../assets/4k-Rolls-Royce-Ghost-4K-Wallpaper.jpg') center/cover no-repeat;
+  padding: 60px 20px;
+  /* Reduced vertical padding from 80px to 60px */
+  text-align: center;
+  margin-bottom: 20px;
+  /* Reduced bottom margin */
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.hero-section h1 {
+  font-size: 2.8rem;
+  /* Slightly reduced font size */
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 8px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  /* Reduced margin */
+  color: #eee;
+}
+
+/* --- Hero Stats - Reusing Car Details Data Card style --- */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  /* Reduced gap */
+  margin-top: 20px;
+  /* Reduced margin */
+}
+
+.stat-card {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  /* Ensure internal padding is consistent */
+}
+
+.stat-card:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.stat-card .card-value {
+  font-size: 1.8rem;
+  /* Slightly reduced font size */
+  color: #4db6ac;
+}
+
+.stat-card .card-label {
+  color: #fff;
+}
+
+.stat-card .card-label svg {
+  color: #fff;
+}
+
+/* --- Featured Cars Carousel Section --- */
+.featured-carousel-wrapper {
+  padding: 5px;
+  /* Slightly reduced padding */
+}
+
+.car-card-slide-item {
+  padding: 0 8px;
+  /* Slightly reduced horizontal padding */
+}
+
+/* --- Available Cars Grid --- */
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+  /* Slightly reduced gap from 20px */
+  margin-top: 15px;
+  /* Reduced margin */
+}
+
+/* --- Pagination Controls --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  /* Reduced margin */
+  gap: 6px;
+  /* Reduced gap */
+}
+
+.page-btn {
+  padding: 8px 12px;
+  /* Slightly smaller buttons */
+  border-radius: 6px;
+  border: 1px solid #cfd8dc;
+  background-color: #fff;
+  color: #546e7a;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.page-btn.active {
+  background-color: #1e88e5;
+  color: #fff;
+  border-color: #1565c0;
+}
+
+/* Status Message - Unchanged */
+.booking-status-message {
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.booking-status-message.error {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+/* Utility Class */
+.text-center {
+  text-align: center;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section p {
+    font-size: 1.0rem;
+  }
+
+  .cars-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,76 @@
+
+
+5️⃣ Ratings + Reviews
+
+After completing a booking:
+
+Customer can rate the car
+
+Review the owner
+
+Owner can also rate customer
+
+Display average rating on each CarCard ⭐⭐⭐⭐⭐
+
+6️⃣ Car Availability Calendar
+
+Like booking.com —
+Owner sets unavailable days, customers see a calendar in CarDetails.
+
+
+
+
+
+13️⃣ Document Verification
+
+Owners upload:
+
+NIC
+
+Driving License
+
+Vehicle Revenue License
+
+Insurance
+
+Admin verifies → system marks “Verified Owner”.
+
+
+15️⃣ Payment System (Stripe / PayHere)
+
+Add secure online payment:
+
+Advance payment
+
+Full payment
+
+Refund processing
+
+✅ ADMIN PANEL FEATURES
+16️⃣ Fraud Detection
+
+If user cancels too much → flag account.
+
+17️⃣ Car Quality Check
+
+Admin can approve/reject car listings.
+
+18️⃣ Analytics Dashboard
+
+Charts for:
+
+Daily bookings
+
+Revenue
+
+Most rented cars
+
+Customer growth
+
+Use Recharts or Chart.js.
+
+✅ MAP-BASED Features
+19️⃣ Geo-Location Search
+
+User searches “Colombo” → map centers to Colombo and shows cars nearby.
+

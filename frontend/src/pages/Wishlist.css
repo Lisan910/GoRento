@@ -1,0 +1,83 @@
+/* Wishlist.css */
+
+/* --- General Layout and Typography --- */
+.wishlist-page-wrapper {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f7f9fc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.wishlist-header {
+    text-align: center;
+    padding: 20px 0 30px;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.wishlist-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #004d40; /* Formal dark green */
+    margin: 0 0 8px;
+}
+
+.wishlist-header p {
+    font-size: 1.1rem;
+    color: #607d8b;
+}
+
+/* --- Wishlist Grid --- */
+.wishlist-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.wishlist-card {
+  position: relative;
+}
+
+.wishlist-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Empty Wishlist Placeholder --- */
+.wishlist-empty {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 1.3rem;
+    color: #999;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+/* --- Loading State --- */
+.wishlist-loading {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 1.2rem;
+    color: #607d8b;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .wishlist-container {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .wishlist-header h1 {
+        font-size: 2rem;
+    }
+    .wishlist-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

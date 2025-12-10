@@ -1,0 +1,239 @@
+/* --- Global Page Styling --- */
+.customer-bookings-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  background-color: #f8f9fa; /* Light background for contrast */
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #212529;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* --- Grid Layout --- */
+.bookings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* --- Booking Card Styling --- */
+.booking-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft, modern shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-card:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Header with Car Details and Status */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e9ecef; /* Subtle separator */
+}
+
+.car-details {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #343a40;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.car-details span {
+  font-weight: 400;
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.icon-main {
+  color: #007bff; /* Primary color for main icon */
+}
+
+/* Status Badge */
+.status-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+}
+
+/* Status Colors */
+.status-confirmed {
+  background-color: #d4edda;
+  color: #155724;
+}
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+.status-cancelled {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Booking Info Group */
+.booking-info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-icon {
+  color: #adb5bd;
+  font-size: 1.1rem;
+}
+
+.info-label {
+  font-weight: 500;
+  color: #495057;
+  grid-column: 2 / 3; /* Aligns label next to icon */
+  margin: 0;
+}
+
+.info-value {
+  grid-column: 2 / 3;
+  color: #343a40;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Card Actions (Button) */
+.card-actions {
+  margin-top: auto; /* Pushes button to the bottom */
+  padding-top: 1rem;
+  border-top: 1px dashed #e9ecef;
+}
+
+.cancel-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #dc3545; /* Bootstrap-like danger red */
+  border: none;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.cancel-btn:hover:not(:disabled) {
+  background: #c82333;
+  box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+.cancel-btn.disabled {
+  background: #6c757d;
+  color: #dee2e6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+/* --- State Styling (Loading/Empty) --- */
+.loading-state, .empty-state {
+  text-align: center;
+  padding: 4rem 1rem;
+  border: 2px dashed #ced4da;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 3rem;
+}
+
+.loading-icon {
+  font-size: 3rem;
+  color: #007bff;
+  animation: spin 2s linear infinite;
+}
+
+.empty-state h2 {
+    color: #343a40;
+    margin-bottom: 0.5rem;
+}
+.empty-state p {
+    color: #6c757d;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 576px) {
+  .customer-bookings-page {
+    padding: 2rem 1rem;
+  }
+  .page-title {
+    font-size: 2rem;
+  }
+  .car-details {
+    font-size: 1.2rem;
+  }
+  .status-badge {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+.download-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #007bff; /* blue */
+  border: none;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.download-btn:hover {
+  background: #0069d9;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}

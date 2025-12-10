@@ -1,0 +1,234 @@
+/* ----------------------------------
+    ADD CAR FORM PANEL
+---------------------------------- */
+
+/* Base slide-out panel */
+.slide-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 480px;
+    max-width: 95%;
+    height: 90vh;
+    background: #ffffff;
+    padding: 35px 30px;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    overflow-y: auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    transition: transform 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { right: -500px; opacity: 0; }
+    to { right: 0; opacity: 1; }
+}
+
+/* Header */
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.panel-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #95a5a6;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #e74c3c;
+    transform: rotate(90deg);
+}
+
+/* Form layout */
+.panel-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.panel-form label {
+    font-size: 0.9rem;
+    color: #34495e;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: -5px;
+}
+
+.panel-form input:not([type="file"]),
+.panel-form select,
+.panel-form textarea {
+    width: 90%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #dcdfe6;
+    font-size: 1rem;
+    background-color: #fcfcfc;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.panel-form input:focus,
+.panel-form select:focus,
+.panel-form textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    background-color: #ffffff;
+}
+
+.panel-form input::placeholder {
+    color: #bdc3c7;
+}
+
+/* Grid layout for form fields */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Features input area */
+.features-input {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    background: #fcfcfc;
+}
+
+.feature-row {
+    display: flex;
+    gap: 10px;
+}
+
+.feature-row input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+}
+
+.feature-row button {
+    padding: 0 16px;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.feature-row button:hover {
+    background: #27ae60;
+}
+
+.feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+.feature-chip {
+    display: flex;
+    align-items: center;
+    background: #e6f7ff;
+    color: #3498db;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid #bbdefb;
+}
+
+.feature-chip button {
+    background: none;
+    border: none;
+    margin-left: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #3498db;
+    font-size: 1.1em;
+    line-height: 1;
+    padding: 0;
+}
+
+.feature-chip button:hover {
+    color: #e74c3c;
+}
+
+/* Submit button */
+.submit-btn {
+    margin-top: 25px;
+    background: #3498db;
+    color: #fff;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover {
+    background: #2980b9;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Map container styling */
+.leaflet-container {
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    width: 100%;
+    height: 250px;
+    margin-top: 10px;
+}
+
+/* Optional: improve marker visibility */
+.leaflet-marker-icon {
+    transform: translate(-50%, -100%);
+}
+
+.leaflet-marker-icon.leaflet-dragging {
+    cursor: grabbing;
+}
+
+/* -------------------------
+    RESPONSIVE
+------------------------- */
+@media (max-width: 1024px) {
+    .slide-panel { width: 80%; }
+    .form-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    .slide-panel {
+        width: 100vw;
+        height: 100vh;
+        padding: 20px 15px;
+    }
+    .form-grid { grid-template-columns: 1fr; }
+    .leaflet-container { height: 200px; }
+    .panel-header h2 { font-size: 1.5rem; }
+    .submit-btn { padding: 14px; font-size: 1rem; }
+}

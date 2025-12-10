@@ -1,0 +1,199 @@
+system will support two types of users:
+
+Car Owners (Listers)
+Renters (Customers)
+----------------------------------------------------------------------------------------------
+features
+
+User Roles (Owner, Customer, Admin)
+Owners list cars.
+Customers book cars.
+Admins manage everything (cars, users, payments).
+
+✔ Smart Search System
+Customers can search cars by:
+Location
+Date range
+Vehicle type (SUV, sedan, van, luxury)
+Price range
+Transmission (manual/automatic)
+Fuel type (petrol/diesel/electric)
+
+✔ Booking + Availability System
+Before booking, the system checks:
+If the car is available
+If the dates don’t clash with other bookings
+
+✔ Reviews & Ratings
+Customers leave reviews for cars after using them.
+
+✔ Document Verification
+For security:
+Owners upload car documents (RC, insurance).
+Customers upload driving license.
+
+✔ Payment Integration
+Online payment for bookings (Stripe, PayPal).
+
+✔ Booking History & Owner Dashboard
+Owners can see:
+Total revenue
+Upcoming bookings
+Cancelled bookings
+Car performance (views, rentals)
+
+✔ Customer Dashboard
+Customers can see:
+Past bookings
+Upcoming bookings
+Payment receipts
+
+✔ Chat System
+Optional: Real-time chat between owner & customer.
+
+-----------------------------------------------------------------------------------------------------------
+
+
+Functional Requirements (What your system must do)
+
+1. User Management
+Users can:
+Create account
+Login/logout
+Edit profile
+Upload profile picture
+Reset password
+
+Two main user types:
+
+Car Owner
+Customer
+
+Admin:
+
+Manages entire system
+Can block users
+Can approve owner documents
+
+2. Car Owner Features
+
+Owners can:
+
+✔ Add car listing
+Car name, model, year
+Price per day
+Photos
+Car location
+Transmission
+Fuel type
+Number of seats
+Description
+
+✔ Manage cars
+Edit car details
+Remove car
+Mark car as unavailable
+
+✔ Manage bookings
+Accept/decline booking requests
+See calendar of booked dates
+See revenue (optional)
+
+3. Customer Features
+
+Customers can:
+
+✔ Search & Filter cars
+By:
+Dates
+Vehicle type
+City
+Price
+
+✔ Book car
+Select start & end dates
+See total price
+Send booking request / Instant book
+
+✔ Manage bookings
+Cancel booking
+View booking history
+
+✔ Payments
+Pay online
+Receive confirmation email
+
+4. Booking Management
+Rules:
+Car cannot be booked twice at overlapping dates
+Payment must be confirmed before booking is final
+Owner can manually approve/cancel
+
+5. Admin Panel
+
+Admin can:
+
+✔ View all users
+✔ Approve/verify owners
+✔ View all cars
+✔ Remove illegal or duplicate cars
+✔ Manage payments
+✔ View website analytics
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+Database Requirements (MongoDB Collections)
+
+✔ users
+name
+email
+password
+role (customer/owner/admin)
+licenseNumber
+profilePic
+
+✔ cars
+ownerId
+model
+type
+pricePerDay
+images
+location
+fuelType
+transmission
+availability
+
+✔ bookings
+userId
+carId
+fromDate
+toDate
+totalPrice
+status (pending/accepted/cancelled/completed)
+
+✔ payments
+bookingId
+amount
+paymentStatus
+
+✔ reviews
+userId
+carId
+rating
+comment
+
+----------------------------------------------------------------------------------------------
+
+System Flow (How the website works)
+
+1User creates account → Choose Customer or Owner
+2️Owner adds car → Admin verifies
+3️Customer searches & selects car
+4️Customer selects rental dates
+5️System checks availability
+6️Customer pays online
+7️Booking confirmed
+8️After rental, customer leaves review
+
+--------------------------------------------------------------------------------------------------

@@ -1,0 +1,140 @@
+/* src/components/PolicyForm.css */
+
+/* --- 1. Overlay and Modal Container --- */
+
+.policy-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.policy-form-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px; /* Soft rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Professional, soft shadow */
+    width: 90%;
+    max-width: 600px; /* Standard form width */
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* --- 2. Header and Typography --- */
+
+.policy-form-container h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+
+/* --- 3. Form Layout and Inputs --- */
+
+.policy-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Consistent spacing */
+}
+
+.policy-form-container label {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 0.95rem;
+    margin-bottom: -10px; /* Pull label closer to input */
+}
+
+.policy-form-container textarea {
+    width: 100%;
+    min-height: 120px; /* Sufficient height for policy text */
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #dcdfe6;
+    font-size: 1rem;
+    resize: vertical; /* Allow vertical resizing only */
+    transition: border-color 0.2s, box-shadow 0.2s;
+    line-height: 1.5; /* Better readability for text areas */
+}
+
+.policy-form-container textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* --- 4. Action Buttons --- */
+
+.policy-form-container button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 5px;
+}
+
+/* Save Button (Primary Action) */
+.policy-form-container button[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.policy-form-container button[type="submit"]:not([disabled]):hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+}
+
+/* Disabled State */
+.policy-form-container button[type="submit"][disabled] {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+    color: #f7f7f7;
+}
+
+/* Cancel Button (Secondary Action) */
+.policy-form-container button[type="button"] {
+    background-color: #ecf0f1;
+    color: #34495e;
+}
+
+.policy-form-container button[type="button"]:hover {
+    background-color: #dce0e3;
+}
+
+/* Button Grouping */
+.policy-form-container form > button {
+    /* Target the two buttons at the bottom */
+    display: inline-block;
+    width: 100%; /* Default to full width for stacking */
+}
+
+/* Layout for wider screens */
+@media (min-width: 480px) {
+    .policy-form-container form > button {
+        width: auto;
+        margin-right: 10px;
+    }
+}

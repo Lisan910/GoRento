@@ -1,0 +1,139 @@
+/* ------------------------------------------------ */
+/* --- PREMIUM FEATURES SECTION STYLES (LIGHT MODE) --- */
+/* ------------------------------------------------ */
+
+:root {
+    /* Define new Light Mode Colors */
+    --color-bg-light: #ffffff;      /* Pure White Background */
+    --color-primary-blue: #007bff;   /* Official/Corporate Blue Accent */
+    --color-primary-dark: #0d47a1;   /* Deep Navy Blue for Titles */
+    --color-text-dark: #212529;      /* Dark Text for Readability */
+    --color-text-muted: #6c757d;     /* Gray Text for Descriptions */
+    --color-card-bg: #f8f9fa;       /* Very light gray card background */
+    --border-radius-lg: 10px;
+    /* Clean, subtle shadow for professional look */
+    --box-shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08); 
+}
+
+.premium-features-section {
+    padding: 100px 20px;
+    /* Base color is white */
+    background: var(--color-bg-light); 
+    text-align: center;
+    font-family: 'Inter', sans-serif; /* Using a clean, modern font */
+    color: var(--color-text-dark);
+}
+
+.features-inner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Header Styling --- */
+.features-title-header {
+    margin-bottom: 70px;
+    color: var(--color-text-dark);
+}
+
+.subtitle-tag {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-primary-blue); /* Blue accent */
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 15px;
+}
+
+.features-title-header h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-primary-dark); /* Deep Navy Title */
+}
+
+/* --- Grid Layout --- */
+.features-pro-grid {
+    display: grid;
+    /* 3 columns on larger screens */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* --- Feature Card Styling --- */
+.pro-feature-card {
+    /* White background with a subtle lift */
+    background: var(--color-bg-light); 
+    padding: 40px;
+    border-radius: var(--border-radius-lg);
+    /* Subtle initial shadow */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* Very subtle border to define the card area */
+    border: 1px solid #e9ecef; 
+}
+
+/* Hover Effect: More noticeable shadow and slight lift */
+.pro-feature-card:hover {
+    transform: translateY(-5px);
+    /* Professional, deep shadow on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    border-color: var(--color-primary-blue); /* Highlight border on hover */
+}
+
+/* Icon Wrapper for Contrast */
+.feature-icon-wrapper {
+    /* Light background for the icon circle */
+    background: #e6f0ff; 
+    color: var(--color-primary-blue);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    /* No glowing effect, just clean shadow */
+    box-shadow: 0 0 0 6px rgba(0, 123, 255, 0.1); 
+}
+
+.pro-feature-card svg {
+    /* Increase icon size slightly for visual weight */
+    font-size: 32px !important; 
+}
+
+.pro-feature-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 10px;
+}
+
+.pro-feature-description {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* --- Responsive Adjustments (Kept Clean) --- */
+@media (max-width: 992px) {
+    .features-title-header h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .premium-features-section {
+        padding: 60px 15px;
+    }
+    .features-pro-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .features-title-header h2 {
+        font-size: 2rem;
+    }
+}

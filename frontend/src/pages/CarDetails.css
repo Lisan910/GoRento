@@ -1,0 +1,337 @@
+/* General Layout and Typography */
+.car-details-page-wrapper {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f7f9fc; /* Light background for the page */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Header */
+.car-details-header {
+    text-align: center;
+    padding: 20px 0 30px;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 30px;
+}
+.car-details-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #004d40; /* Formal dark green/teal */
+    margin: 0 0 8px;
+}
+.car-location {
+    font-size: 1.1rem;
+    color: #607d8b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Main Content Layout */
+.car-details-main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Two-column layout */
+    gap: 40px;
+}
+
+.detail-section {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+.section-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e88e5; /* Formal blue accent */
+    border-bottom: 2px solid #e1f5fe;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.icon-spacer {
+    margin-right: 8px;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-color: #cfd8dc;
+    margin: 20px 0;
+}
+
+/* --- Image Gallery Section --- */
+.car-image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+.car-image-gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #eee;
+}
+.car-image-gallery img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.no-image-placeholder {
+    padding: 50px;
+    text-align: center;
+    color: #999;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+}
+
+/* --- Info Cards Section (Specifications) --- */
+.car-info-data-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+.data-card {
+    background-color: #e3f2fd; /* Light blue background */
+    border: 1px solid #bbdefb;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+.data-card:hover {
+    background-color: #bbdefb;
+}
+.card-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e88e5;
+    margin-bottom: 5px;
+}
+.card-label {
+    font-size: 0.9rem;
+    color: #607d8b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* --- Features Section --- */
+.features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.feature-tag {
+    background-color: #e8f5e9; /* Light green for features */
+    color: #2e7d32; /* Dark green text */
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* --- Map Section --- */
+.map-container-wrapper {
+    overflow: hidden; /* Ensures map border-radius applies */
+}
+.leaflet-container {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+/* --- Policies Section --- */
+.policies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.policy-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-left: 4px solid #4db6ac; /* Accent color */
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.policy-card.full-width {
+    grid-column: 1 / -1;
+}
+.policy-card h4 {
+    font-size: 1.1rem;
+    color: #004d40;
+    margin-top: 0;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.policy-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #546e7a;
+}
+
+/* --- Owner Section --- */
+.owner-info-box {
+    border: 1px solid #b3e5fc;
+    background-color: #e1f5fe;
+    padding: 15px;
+    border-radius: 8px;
+}
+.owner-info-box p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+.owner-info-box strong {
+    color: #0288d1;
+}
+
+/* --- Booking Module --- */
+.sticky-booking-details {
+    position: sticky;
+    top: 20px; /* Stick near the top of the viewport */
+    align-self: flex-start; /* Ensures it starts at the top of its grid cell */
+}
+.booking-form-modern {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.date-input-group {
+    display: flex;
+    flex-direction: column;
+}
+.date-input-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #455a64;
+}
+.booking-form-modern input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+.booking-form-modern input[type="date"]:focus {
+    border-color: #1e88e5;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
+}
+.book-now-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #43a047; /* Formal green for action */
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+.book-now-button:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+}
+.booking-status-message {
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-align: center;
+}
+.booking-status-message.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+.booking-status-message.error {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+/* --- Related Cars Section --- */
+.related-cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* --- Image Modal (Keep CSS clean) --- */
+.image-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.image-modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+    background: transparent;
+}
+.image-modal-content img {
+    max-width: 100%;
+    max-height: 100vh;
+    display: block;
+    border-radius: 8px;
+}
+.image-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: #fff;
+    color: #333;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .car-details-main-content {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+        gap: 20px;
+    }
+    .sticky-booking-details {
+        position: static; /* Remove sticky behavior in single column */
+    }
+}
+
+@media (max-width: 600px) {
+    .car-details-header h1 {
+        font-size: 2rem;
+    }
+    .car-image-gallery {
+        grid-template-columns: 1fr; /* Stack images vertically */
+    }
+    .car-info-data-grid {
+        grid-template-columns: 1fr; /* Stack data cards vertically */
+    }
+    .policies-grid {
+        grid-template-columns: 1fr;
+    }
+    .policy-card.full-width {
+        grid-column: auto;
+    }
+}
