@@ -7,9 +7,7 @@ const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "7d" });
 };
 
-/* ============================
-   REGISTER
-=============================== */
+/* REGISTER*/
 exports.register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
@@ -40,9 +38,7 @@ exports.register = async (req, res) => {
   }
 };
 
-/* ============================
-   LOGIN
-=============================== */
+/*LOGIN*/
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -79,9 +75,7 @@ exports.login = async (req, res) => {
   }
 };
 
-/* ============================
-   GOOGLE LOGIN
-=============================== */
+/*GOOGLE LOGIN*/
 exports.googleLogin = async (req, res) => {
   try {
     const { token } = req.body;
@@ -116,25 +110,21 @@ exports.googleLogin = async (req, res) => {
   }
 };
 
-/* ============================
-   GET PROFILE
-=============================== */
+/*GET PROFILE*/
 exports.getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
     if (!user) return res.status(404).json({ message: "User not found" });
 
     res.json({
-      ...user.toObject(), // convert mongoose document to plain object
-      favorites: user.favorites || [], // add favorites field
+      ...user.toObject(),
+      favorites: user.favorites || [],
     });
   } catch (err) {
     res.status(500).json({ message: "Server error" });
   }
 };
-/* ============================
-   UPDATE PROFILE & POLICIES
-=============================== */
+/* UPDATE PROFILE & POLICIES*/
 exports.updateProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
@@ -166,21 +156,27 @@ exports.updatePolicies = async (req, res) => {
     if (!owner) return res.status(404).json({ message: "Owner not found" });
     if (owner.role !== "owner") return res.status(403).json({ message: "Not an owner" });
 
-    // Initialize policies if undefined
+    // Ensure policies object exists
     if (!owner.policies) owner.policies = {};
 
     // Update policies
-    owner.policies.insurance = req.body.insurance || "";
-    owner.policies.cancellation = req.body.cancellation || "";
-    owner.policies.additionalRules = req.body.additionalRules || "";
+    const { insurance, cancellation, additionalRules } = req.body;
+    owner.policies.insurance = insurance || owner.policies.insurance || "";
+    owner.policies.cancellation = cancellation || owner.policies.cancellation || "";
+    owner.policies.additionalRules = additionalRules || owner.policies.additionalRules || "";
+
+    // Mark modified for nested object
+    owner.markModified('policies');
 
     await owner.save();
+
     res.json({ message: "Policies updated successfully", policies: owner.policies });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 };
+
 
 exports.getUserById = async (req, res) => {
   try {
