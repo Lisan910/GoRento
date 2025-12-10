@@ -255,10 +255,8 @@ const Home = () => {
                   className={`page-btn ${page === i + 1 ? "active" : ""}`}
                   onClick={() => {
                     setPage(i + 1);
-                    document.getElementById("available-cars").scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    });
+                    // Scroll only when user clicks page button
+                    availableCarsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
                   }}
                 >
                   {i + 1}
