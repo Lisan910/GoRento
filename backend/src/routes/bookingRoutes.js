@@ -30,10 +30,10 @@ router.get('/', protect, listBookings);
 // CREATE BOOKING
 router.post('/', protect, createBooking);
 
-// GET BOOKING BY ID — MUST BE LAST
-router.get('/:id', protect, getBooking);
-
 // UPDATE BOOKING STATUS
 router.patch('/:id/status', protect, updateBookingStatus);
+
+// GET BOOKING BY ID — MUST BE LAST
+router.get('/:id', protect, getBooking);
 
 module.exports = router;
