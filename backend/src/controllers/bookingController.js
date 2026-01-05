@@ -76,14 +76,16 @@ const listBookings = async (req, res, next) => {
 
 const getUserBookings = async (req, res) => {
   try {
+    await autoUpdateBookingStatus({ user: req.user._id });
+
     const bookings = await Booking.find({ user: req.user._id })
-      .populate('car')
-      .populate('user', 'name email');
+      .populate("car")
+      .populate("user", "name email");
 
     res.json(bookings);
   } catch (error) {
-    console.error('getUserBookings error:', error);
-    res.status(500).json({ message: 'Server error' });
+    console.error("getUserBookings error:", error);
+    res.status(500).json({ message: "Server error" });
   }
 };
 
@@ -94,22 +96,25 @@ const getOwnerBookings = async (req, res) => {
   try {
     const ownerId = req.user._id;
 
-    const ownerCars = await Car.find({ owner: ownerId }).select('_id');
-    const carIds = ownerCars.map((c) => c._id);
+    const ownerCars = await Car.find({ owner: ownerId }).select("_id");
+    const carIds = ownerCars.map(c => c._id);
 
-    if (carIds.length === 0) return res.json([]);
+    if (!carIds.length) return res.json([]);
+
+    await autoUpdateBookingStatus({ car: { $in: carIds } });
 
     const bookings = await Booking.find({ car: { $in: carIds } })
-      .populate('car', 'make model pricePerDay')
-      .populate('user', 'name email phone address')
+      .populate("car", "make model pricePerDay")
+      .populate("user", "name email phone address")
       .sort({ createdAt: -1 });
 
     res.json(bookings);
   } catch (err) {
-    console.error('getOwnerBookings error:', err);
-    res.status(500).json({ message: 'Server error fetching owner bookings' });
+    console.error("getOwnerBookings error:", err);
+    res.status(500).json({ message: "Server error fetching owner bookings" });
   }
 };
+
 
 // -----------------------------------
 // GET A SINGLE BOOKING
@@ -196,21 +201,28 @@ const updateBookingStatus = async (req, res, next) => {
 };
 
 // -----------------------------------
-const autoUpdateBookingStatus = async () => {
+const autoUpdateBookingStatus = async (filter = {}) => {
   const now = new Date();
 
   const bookings = await Booking.find({
-    status: { $in: ["confirmed", "ongoing"] }
+    status: { $in: ["confirmed", "ongoing"] },
+    ...filter
   });
 
   for (let b of bookings) {
+    let updated = false;
+
     if (now >= b.startDate && now <= b.endDate && b.status !== "ongoing") {
       b.status = "ongoing";
-      await b.save();
+      updated = true;
     }
 
     if (now > b.endDate && b.status !== "completed") {
       b.status = "completed";
+      updated = true;
+    }
+
+    if (updated) {
       await b.save();
     }
   }
