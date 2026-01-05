@@ -14,7 +14,7 @@ API.interceptors.request.use(config => {
 });
 
 export const carApi = {
-  getAll: () => API.get("/"),        // gets all cars (owner: their cars; customer: all)
+  getAll: () => API.get("/"),        // gets all cars 
   get: (id) => API.get(`/${id}`),
   getRelated: (id) => API.get(`/${id}/related`),
   create: (data) => API.post("/", data),

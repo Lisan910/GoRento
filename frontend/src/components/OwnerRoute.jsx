@@ -1,4 +1,4 @@
-// src/components/OwnerRoute.jsx
+
 import { useAuth } from "../hooks/useAuth";
 import { Navigate } from "react-router-dom";
 

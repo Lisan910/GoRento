@@ -29,7 +29,7 @@ L.Icon.Default.mergeOptions({
 });
 
 // Import video
-import heroVideo from "../assets/4281252-hd_1920_1080_24fps.mp4";
+
 
 const Home = () => {
   const [cars, setCars] = useState([]);

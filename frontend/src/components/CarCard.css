@@ -1,6 +1,4 @@
-/* ----------------------------------
-    CAR CARD STYLING (Professional & Responsive)
----------------------------------- */
+
 .car-listing-card {
     display: flex;
     flex-direction: column;
@@ -21,9 +19,6 @@
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* -------------------------
-    IMAGE & CAROUSEL
-------------------------- */
 .car-visual-wrapper {
     position: relative;
     height: 220px;
@@ -91,9 +86,7 @@
 .carousel-control.prev { left: 10px; }
 .carousel-control.next { right: 10px; }
 
-/* -------------------------
-    DETAILS PANEL
-------------------------- */
+/* DETAILS PANEL */
 .car-details-panel {
     display: flex;
     flex-direction: column;
@@ -142,9 +135,7 @@
     border: 1px solid #f3f4f6;
 }
 
-/* -------------------------
-    ACTION BUTTONS
-------------------------- */
+/*ACTION BUTTONS*/
 .cta-view-details {
     background: #0d47a1;
     color: #fff;
@@ -192,9 +183,7 @@
 .tool-delete-btn { background: #ef4444; }
 .tool-delete-btn:hover { background: #dc2626; }
 
-/* -------------------------
-    MODAL & FORM (Glassmorphism)
-------------------------- */
+/*MODAL & FORM (Glassmorphism)*/
 .modal-backdrop-professional {
     position: fixed;
     top: 0;

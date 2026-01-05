@@ -23,7 +23,7 @@ const Wishlist = () => {
     fetchWishlist();
   }, []);
 
-  // 🔹 Update wishlist instantly when heart is toggled
+  //  Update wishlist instantly when heart is toggled
   const handleToggleFromCard = (carId, added) => {
     setWishlist(prev =>
       added

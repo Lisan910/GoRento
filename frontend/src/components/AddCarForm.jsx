@@ -5,7 +5,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./AddCarForm.css";
 
-// Fix Leaflet default icon
+
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
@@ -37,7 +37,7 @@ const AddCarForm = ({ onClose, onCarAdded }) => {
     model: "",
     year: "",
     pricePerDay: "",
-    location: "", // text name
+    location: "", 
     seats: 4,
     numOfKm: "",
     transmission: "",

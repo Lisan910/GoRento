@@ -1,9 +1,9 @@
-// src/api/axiosClient.js
+
 import axios from "axios";
 
 // Create an Axios instance
 const axiosClient = axios.create({
-  baseURL: "http://localhost:5000/api", // backend base URL
+  baseURL: "http://localhost:5000/api", 
   headers: {
     "Content-Type": "application/json",
   },

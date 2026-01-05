@@ -24,7 +24,7 @@ const Register = () => {
 
     try {
       await authApi.register(form);
-      // FIXED: Pass separate email & password arguments
+      // Pass separate email & password arguments
       await login(form.email, form.password);
 
       setMessage("Registration successful! Redirecting...");

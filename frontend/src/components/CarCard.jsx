@@ -37,9 +37,9 @@ L.Icon.Default.mergeOptions({
 });
 
 
-// =========================
+
 // Map Marker Component
-// =========================
+
 const LocationMarker = ({ position, setPosition }) => {
   useMapEvents({
     dragend(e) {
@@ -63,9 +63,9 @@ const LocationMarker = ({ position, setPosition }) => {
   );
 };
 
-// --------------------------------
+
 // MAIN COMPONENT
-// --------------------------------
+
 const CarCard = ({ car, onUpdate, onDelete, onWishlistToggle }) => {
   const { user, setUser } = useAuth();
   const [currentImage, setCurrentImage] = useState(0);

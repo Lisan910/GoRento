@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom"; // Import useLocation
+import { Link, useLocation } from "react-router-dom"; 
 import { useAuth } from "../hooks/useAuth";
-import { FiHome, FiUser, FiLogOut, FiLogIn, FiUserPlus, FiBookOpen, FiStar } from "react-icons/fi"; // Added FiStar for Wishlist
+import { FiHome, FiUser, FiLogOut, FiLogIn, FiUserPlus, FiBookOpen, FiStar } from "react-icons/fi"; 
 import "./Navbar.css";
 
-// Helper function to determine if a link is "selected" (active)
+
 const getLinkClass = (currentPath, targetPath) => {
   return currentPath === targetPath ? "nav-link selected" : "nav-link";
 };

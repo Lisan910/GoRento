@@ -1,4 +1,4 @@
-// src/api/authApi.js
+
 import axiosClient from "./axiosClient";
 
 const BASE_URL = "http://localhost:5000/api/auth";
@@ -15,9 +15,9 @@ export const authApi = {
       headers: { "Content-Type": "multipart/form-data" },
     }),
 
-  // ------------------------------
+
   // Policies functions
-  // ------------------------------
+  
   getUserById: (id) => axiosClient.get(`${BASE_URL}/${id}`), // fetch user by ID
   updatePolicies: (id, policies) => axiosClient.put(`${BASE_URL}/${id}/policies`, {
     insurance: policies.insurance,

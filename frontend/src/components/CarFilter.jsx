@@ -14,7 +14,7 @@ import "./CarFilter.css";
 
 const CarFilter = ({ onFilterChange }) => {
 
-  /* -------------------- STATE -------------------- */
+  
   const [filters, setFilters] = useState({
     search: "",
     make: "",
@@ -42,8 +42,7 @@ const CarFilter = ({ onFilterChange }) => {
   };
 
   const handleApply = () => {
-    // Convert single values to arrays if your parent component expects arrays
-    // e.g., if parent needs seats: [4], we convert it here.
+    
     const formattedFilters = {
         ...filters,
         seats: filters.seats ? [parseInt(filters.seats)] : [],

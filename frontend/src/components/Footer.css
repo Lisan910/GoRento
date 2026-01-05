@@ -1,11 +1,8 @@
-/* ------------------------------------------------ */
-/* --- PREMIUM FOOTER STYLES --- */
-/* ------------------------------------------------ */
 :root {
-  --footer-bg: #1f2937; /* Charcoal/Dark Slate Gray */
-  --footer-text: #e5e7eb; /* Light Gray Text */
-  --footer-accent: #3b82f6; /* Primary Blue Accent */
-  --footer-border: #374151; /* Darker border color */
+  --footer-bg: #1f2937;
+  --footer-text: #e5e7eb;
+  --footer-accent: #3b82f6;
+  --footer-border: #374151;
   --footer-link-hover: #ffffff;
 }
 
@@ -23,7 +20,6 @@
   margin: 0 auto;
   padding: 40px 20px;
   display: grid;
-  /* 3 columns: 2/5 (brand) | 1/5 (links) | 2/5 (contact) */
   grid-template-columns: 2fr 1fr 2fr;
   gap: 30px;
   border-bottom: 1px solid var(--footer-border);
@@ -42,7 +38,6 @@
   letter-spacing: 0.5px;
 }
 
-/* --- 1. Brand Info --- */
 .brand-info {
   border-right: 1px solid var(--footer-border);
 }
@@ -57,14 +52,14 @@
 }
 
 .logo-icon {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 
 .brand-info p {
   font-size: 0.95rem;
   line-height: 1.6;
   margin-top: 15px;
-  color: #a1a1aa; /* Muted gray */
+  color: #a1a1aa;
 }
 
 .social-links {
@@ -84,7 +79,6 @@
   transform: translateY(-3px);
 }
 
-/* --- 2 & 3. Quick Links & Contact Info --- */
 .quick-links ul,
 .contact-info ul {
   list-style: none;
@@ -123,24 +117,22 @@
   margin-top: 2px;
 }
 
-/* --- Copyright Strip --- */
 .footer-copyright-strip {
   text-align: center;
   padding: 20px 20px;
-  background-color: #111827; /* Slightly darker strip */
+  background-color: #111827;
   font-size: 0.85rem;
   color: #9ca3af;
   font-weight: 300;
 }
 
-/* --- Responsive Layout --- */
 @media (max-width: 900px) {
   .footer-content-wrapper {
-    grid-template-columns: 1fr 1fr; /* Two columns on medium screens */
+    grid-template-columns: 1fr 1fr;
   }
-  
+
   .brand-info {
-    grid-column: 1 / span 2; /* Brand spans two columns */
+    grid-column: 1 / span 2;
     border-right: none;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--footer-border);
@@ -149,7 +141,7 @@
   .quick-links {
     padding-top: 20px;
   }
-  
+
   .contact-info {
     padding-top: 20px;
   }
@@ -157,7 +149,7 @@
 
 @media (max-width: 600px) {
   .footer-content-wrapper {
-    grid-template-columns: 1fr; /* Stack all sections vertically on small screens */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
@@ -166,7 +158,7 @@
     border-bottom: 1px solid var(--footer-border);
     padding-bottom: 30px;
   }
-  
+
   .quick-links {
     border-bottom: 1px solid var(--footer-border);
     padding-bottom: 20px;
@@ -174,6 +166,6 @@
   }
 
   .footer-section h4 {
-      margin-bottom: 15px;
+    margin-bottom: 15px;
   }
 }

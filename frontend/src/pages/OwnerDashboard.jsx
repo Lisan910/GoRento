@@ -1,4 +1,4 @@
-// src/pages/OwnerDashboard.jsx
+
 import "./OwnerDashboard.css";
 import AddCarForm from "../components/AddCarForm";
 import PolicyForm from "../components/PolicyForm";
@@ -7,8 +7,7 @@ import { useAuth } from "../hooks/useAuth";
 import { carApi } from "../api/carApi";
 import { bookingApi } from "../api/bookingApi";
 import CarCard from "../components/CarCard";
-import { FaCar, FaShieldAlt, FaListAlt, FaCalendarCheck } from "react-icons/fa"; // Import new icons
-
+import { FaCar, FaShieldAlt, FaListAlt, FaCalendarCheck } from "react-icons/fa"; 
 const OwnerDashboard = () => {
   const { user } = useAuth();
   const [cars, setCars] = useState([]);
@@ -124,7 +123,7 @@ const OwnerDashboard = () => {
             <button onClick={() => setFilterType("rented")} className={filterType === "rented" ? "active" : ""}>Rented ({cars.filter(c => !c.available).length})</button>
           </div>
 
-          {/* Add Car Form Modal/Panel (Assuming it's a modal or separate view) */}
+          {/* Add Car Form Modal/Panel */}
           {showForm && <AddCarForm onClose={() => setShowForm(false)} onCarAdded={handleCarAdded} />}
 
           {/* Cars Grid */}
