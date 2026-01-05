@@ -1,7 +1,15 @@
-// src/pages/CustomerBookings.jsx
 import { useState, useEffect } from "react";
 import { bookingApi } from "../api/bookingApi";
-import { FaCar, FaCalendarAlt, FaDollarSign, FaTimes, FaCheckCircle, FaHourglassHalf } from "react-icons/fa"; // Added Check and Hourglass icons
+import {
+  FaCar,
+  FaCalendarAlt,
+  FaDollarSign,
+  FaTimes,
+  FaCheckCircle,
+  FaHourglassHalf,
+  FaRoad,
+  FaFlagCheckered,
+} from "react-icons/fa";
 import "./CustomerBookings.css";
 import { generateInvoicePDF } from "../utils/generateInvoicePDF";
 
@@ -15,23 +23,8 @@ const CustomerBookings = () => {
       setBookings(res.data);
     } catch (err) {
       console.error("Error fetching bookings:", err);
-      // Removed alert for cleaner UX, rely on console error and empty state
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleCancel = async (bookingId) => {
-    if (!window.confirm("Are you sure you want to cancel this booking? This action cannot be undone.")) return;
-
-    try {
-      await bookingApi.updateStatus(bookingId, "cancelled");
-      setBookings((prev) =>
-        prev.map((b) => (b._id === bookingId ? { ...b, status: "cancelled" } : b))
-      );
-    } catch (err) {
-      console.error("Error cancelling booking:", err);
-      alert("Failed to cancel booking. Try again later.");
     }
   };
 
@@ -39,13 +32,33 @@ const CustomerBookings = () => {
     fetchBookings();
   }, []);
 
-  // Helper function to render status icon
+  const handleCancel = async (bookingId) => {
+    if (!window.confirm("Are you sure you want to cancel this booking?")) return;
+
+    try {
+      await bookingApi.updateStatus(bookingId, "cancelled");
+      setBookings((prev) =>
+        prev.map((b) =>
+          b._id === bookingId ? { ...b, status: "cancelled" } : b
+        )
+      );
+    } catch (err) {
+      console.error("Error cancelling booking:", err);
+      alert("Failed to cancel booking.");
+    }
+  };
+
+  // ✅ Status icons (FULL)
   const getStatusIcon = (status) => {
     switch (status) {
-      case "confirmed":
-        return <FaCheckCircle />;
       case "pending":
         return <FaHourglassHalf />;
+      case "confirmed":
+        return <FaCheckCircle />;
+      case "ongoing":
+        return <FaRoad />;
+      case "completed":
+        return <FaFlagCheckered />;
       case "cancelled":
         return <FaTimes />;
       default:
@@ -66,17 +79,16 @@ const CustomerBookings = () => {
       ) : bookings.length === 0 ? (
         <div className="empty-state">
           <h2>No Reservations Found</h2>
-          <p>It looks like you haven't booked a vehicle yet. Start exploring our listings!</p>
+          <p>Book a vehicle to get started.</p>
         </div>
       ) : (
         <div className="bookings-grid">
           {bookings.map((b) => (
             <div key={b._id} className="booking-card">
               <div className="card-header">
-                <h3 className="car-details">
-                  <FaCar className="icon-main" /> {b.car.make} {b.car.model} <span>({b.car.year})</span>
+                <h3>
+                  <FaCar /> {b.car.make} {b.car.model} ({b.car.year})
                 </h3>
-                {/* Status Badge */}
                 <span className={`status-badge status-${b.status}`}>
                   {getStatusIcon(b.status)} {b.status.toUpperCase()}
                 </span>
@@ -84,45 +96,40 @@ const CustomerBookings = () => {
 
               <div className="booking-info-group">
                 <div className="info-item">
-                  <FaCalendarAlt className="info-icon" />
-                  <p className="info-label">Rental Period</p>
-                  <p className="info-value">
-                    {new Date(b.startDate).toLocaleDateString()} to{" "}
+                  <FaCalendarAlt />
+                  <p>
+                    {new Date(b.startDate).toLocaleDateString()} →{" "}
                     {new Date(b.endDate).toLocaleDateString()}
                   </p>
                 </div>
 
                 <div className="info-item">
-                  <FaDollarSign className="info-icon" />
-                  <p className="info-label">Total Cost</p>
-                  <p className="info-value">
-                    ${b.totalPrice ? b.totalPrice.toFixed(2) : "N/A"}
-                  </p>
+                  <FaDollarSign />
+                  <p>${b.totalPrice?.toFixed(2) || "N/A"}</p>
                 </div>
               </div>
 
               <div className="card-actions">
-                {b.status === "pending" ? (
+                {b.status === "pending" && (
                   <>
-                    <button className="cancel-btn" onClick={() => handleCancel(b._id)}>
-                      <FaTimes /> Cancel Booking
-                    </button>
-
-                    <button className="download-btn" onClick={() => generateInvoicePDF(b)}>
-                      💾 Download Invoice
+                    <button onClick={() => handleCancel(b._id)} className="cancel-btn">
+                      <FaTimes /> Cancel
                     </button>
                   </>
-                ) : b.status === "confirmed" ? (
-                  <>
-                    <button className="cancel-btn disabled" disabled>
-                      Confirmed
-                    </button>
+                )}
 
-                    <button className="download-btn" onClick={() => generateInvoicePDF(b)}>
-                      💾 Download Invoice
-                    </button>
-                  </>
-                ) : (
+                {(b.status === "confirmed" ||
+                  b.status === "ongoing" ||
+                  b.status === "completed") && (
+                  <button
+                    className="download-btn"
+                    onClick={() => generateInvoicePDF(b)}
+                  >
+                    💾 Download Invoice
+                  </button>
+                )}
+
+                {b.status === "cancelled" && (
                   <button className="cancel-btn disabled" disabled>
                     Cancelled
                   </button>

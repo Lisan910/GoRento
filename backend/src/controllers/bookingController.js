@@ -71,10 +71,9 @@ const listBookings = async (req, res, next) => {
   }
 };
 
-// -----------------------------------
-// MISSING FUNCTION (important!)
+
 // CUSTOMER FETCHES THEIR OWN BOOKINGS
-// -----------------------------------
+
 const getUserBookings = async (req, res) => {
   try {
     const bookings = await Booking.find({ user: req.user._id })
@@ -88,9 +87,9 @@ const getUserBookings = async (req, res) => {
   }
 };
 
-// -----------------------------------
+
 // OWNER BOOKINGS
-// -----------------------------------
+
 const getOwnerBookings = async (req, res) => {
   try {
     const ownerId = req.user._id;
@@ -200,20 +199,23 @@ const updateBookingStatus = async (req, res, next) => {
 const autoUpdateBookingStatus = async () => {
   const now = new Date();
 
-  const bookings = await Booking.find({ status: 'confirmed' });
+  const bookings = await Booking.find({
+    status: { $in: ["confirmed", "ongoing"] }
+  });
 
   for (let b of bookings) {
-    if (now >= b.startDate && now <= b.endDate) {
-      b.status = 'ongoing';
+    if (now >= b.startDate && now <= b.endDate && b.status !== "ongoing") {
+      b.status = "ongoing";
       await b.save();
     }
 
-    if (now > b.endDate) {
-      b.status = 'completed';
+    if (now > b.endDate && b.status !== "completed") {
+      b.status = "completed";
       await b.save();
     }
   }
 };
+
 
 // -----------------------------------
 module.exports = {
@@ -222,6 +224,6 @@ module.exports = {
   getBooking,
   updateBookingStatus,
   getOwnerBookings,
-  getUserBookings, // ← FIXED EXPORT
+  getUserBookings, 
   autoUpdateBookingStatus,
 };
