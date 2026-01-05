@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema(
     phone: { type: String, default: "" },
     profilePicture: { type: String, default: "" },
 
-    // New editable fields
+    // editable fields
     address: { type: String, default: "" },
     nicNumber: { type: String, default: "" },
     birthday: { type: Date, default: null },

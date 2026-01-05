@@ -22,7 +22,7 @@ app.use(express.json());
 // Routes
 const authRoutes = require("./routes/authRoutes");
 const carRoutes = require("./routes/carRoutes");
-const bookingRoutes = require("./routes/bookingRoutes"); // adjust path if needed
+const bookingRoutes = require("./routes/bookingRoutes"); 
 const wishlistRoutes = require("./routes/wishlistRoutes");
 app.use("/api/wishlist", require("./routes/wishlistRoutes"));
 app.use('/uploads', express.static('uploads'));
@@ -30,7 +30,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/cars", carRoutes);
 app.use("/api/bookings", bookingRoutes);
 
-// Serve uploaded images
 
 
 // MongoDB connection

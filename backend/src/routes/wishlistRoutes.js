@@ -1,4 +1,4 @@
-// backend/routes/wishlistRoutes.js
+
 const express = require("express");
 const { protect } = require("../middleware/authMiddleware");
 const User = require("../models/User");
@@ -6,7 +6,7 @@ const Car = require("../models/Car");
 
 const router = express.Router();
 
-// GET /api/wishlist - get current user's wishlist
+//get current user's wishlist
 router.get("/", protect, async (req, res) => {
   try {
     const user = await User.findById(req.user._id).populate("favorites");
@@ -17,7 +17,7 @@ router.get("/", protect, async (req, res) => {
   }
 });
 
-// POST /api/wishlist/:carId - toggle favorite
+// toggle favorite
 router.post("/:carId", protect, async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
@@ -32,8 +32,7 @@ router.post("/:carId", protect, async (req, res) => {
     }
 
     await user.save();
-    await user.populate("favorites"); // populate after saving
-
+    await user.populate("favorites"); 
     res.json({ favorites: user.favorites });
   } catch (err) {
     console.error(err);

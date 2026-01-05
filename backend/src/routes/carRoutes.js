@@ -2,7 +2,7 @@ const express = require('express');
 const { createCar, listCars,getOwnerCars, getCar,  updateCar, deleteCar } = require('../controllers/carController');
 const { protect } = require('../middleware/authMiddleware');
 const { permit } = require('../middleware/roleMiddleware');
-const upload = require('../middleware/upload'); // <- this is for car images
+const upload = require('../middleware/upload'); 
 const { getRelatedCars } = require('../controllers/carController');
 
 const router = express.Router();

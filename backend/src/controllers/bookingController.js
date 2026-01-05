@@ -1,9 +1,9 @@
 const Booking = require('../models/Booking');
 const Car = require('../models/Car');
 
-// -----------------------------------
+
 // CREATE BOOKING
-// -----------------------------------
+
 const createBooking = async (req, res, next) => {
   try {
     const { carId, startDate, endDate } = req.body;
@@ -44,9 +44,9 @@ const createBooking = async (req, res, next) => {
   }
 };
 
-// -----------------------------------
+
 // CUSTOMER BOOKINGS ONLY
-// -----------------------------------
+
 const listBookings = async (req, res, next) => {
   try {
     let query = {};
@@ -116,9 +116,9 @@ const getOwnerBookings = async (req, res) => {
 };
 
 
-// -----------------------------------
+
 // GET A SINGLE BOOKING
-// -----------------------------------
+
 const getBooking = async (req, res, next) => {
   try {
     const booking = await Booking.findById(req.params.id).populate('car user');
@@ -129,9 +129,9 @@ const getBooking = async (req, res, next) => {
   }
 };
 
-// -----------------------------------
+
 // UPDATE BOOKING STATUS
-// -----------------------------------
+
 const updateBookingStatus = async (req, res, next) => {
   try {
     const booking = await Booking.findById(req.params.id).populate('car');
@@ -139,9 +139,9 @@ const updateBookingStatus = async (req, res, next) => {
 
     const newStatus = req.body.status;
 
-    // ----------------------------
+    
     // CUSTOMER CAN ONLY CANCEL THEIR OWN PENDING BOOKING
-    // ----------------------------
+    
     if (req.user.role === 'customer') {
       if (booking.user.toString() !== req.user._id.toString())
         return res.status(403).json({ message: 'Forbidden' });
@@ -153,9 +153,9 @@ const updateBookingStatus = async (req, res, next) => {
         return res.status(400).json({ message: 'Customers can only cancel bookings' });
     }
 
-    // ----------------------------
+    
     // OWNER PERMISSIONS
-    // ----------------------------
+   
     if (req.user.role === 'owner') {
       if (booking.car.owner.toString() !== req.user._id.toString())
         return res.status(403).json({ message: 'Forbidden' });
@@ -200,7 +200,7 @@ const updateBookingStatus = async (req, res, next) => {
   }
 };
 
-// -----------------------------------
+
 const autoUpdateBookingStatus = async (filter = {}) => {
   const now = new Date();
 
@@ -229,7 +229,7 @@ const autoUpdateBookingStatus = async (filter = {}) => {
 };
 
 
-// -----------------------------------
+
 module.exports = {
   createBooking,
   listBookings,

@@ -124,6 +124,7 @@ exports.getProfile = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
 /* UPDATE PROFILE & POLICIES*/
 exports.updateProfile = async (req, res) => {
   try {
@@ -165,7 +166,7 @@ exports.updatePolicies = async (req, res) => {
     owner.policies.cancellation = cancellation || owner.policies.cancellation || "";
     owner.policies.additionalRules = additionalRules || owner.policies.additionalRules || "";
 
-    // Mark modified for nested object
+    
     owner.markModified('policies');
 
     await owner.save();

@@ -9,7 +9,7 @@ const {
   getUserById,
 } = require("../controllers/authController");
 const { protect } = require("../middleware/authMiddleware");
-const uploadProfile = require("../middleware/uploadProfile"); // make sure this exists
+const uploadProfile = require("../middleware/uploadProfile");
 
 const router = express.Router();
 
