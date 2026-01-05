@@ -323,7 +323,7 @@ const CarCard = ({ car, onUpdate, onDelete, onWishlistToggle }) => {
               placeholder="Features (comma separated)"
             />
 
-            {/* MAP FOR LOCATION PICKER */}
+            {/* MAPFOR LOCATION PICKER */}
             <div style={{ height: "250px", marginTop: "15px", borderRadius: "8px", overflow: "hidden" }}>
               <MapContainer
                 center={mapPos}
