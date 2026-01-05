@@ -3,7 +3,6 @@ import { useAuth } from "../hooks/useAuth";
 import { carApi } from "../api/carApi";
 import CarCard from "../components/CarCard";
 import CarFilter from "../components/CarFilter";
-// Assuming Features and HowItWorks components are correctly styled
 import Features from "../components/Features";
 import HowItWorks from "../components/HowItWorks";
 
@@ -31,9 +30,7 @@ const CustomerDashboard = () => {
       setFilteredCars(availableCars);
     } catch (err) {
       console.error("Failed to fetch cars:", err);
-      // Using the new message class for error/status display
-      // A proper state management for general dashboard messages might be needed here
-      // For now, keeping the alert
+      
       alert("Failed to load cars. Please login again.");
     } finally {
       setLoading(false);
@@ -44,7 +41,7 @@ const CustomerDashboard = () => {
     fetchCars();
   }, [user]);
 
-  // --- Filter Logic (Unchanged) ---
+  // --- Filter Logic  ---
   const handleFilter = (filters) => {
     let list = [...cars];
 
@@ -95,8 +92,8 @@ const CustomerDashboard = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1, // Changed to 1 for better feature visibility
-    autoplay: true, // Added for dynamic view
+    slidesToScroll: 1, 
+    autoplay: true, 
     autoplaySpeed: 3000,
     responsive: [
       { breakpoint: 1200, settings: { slidesToShow: 3, slidesToScroll: 1 } },
@@ -114,7 +111,7 @@ const CustomerDashboard = () => {
   return (
     <div className="customer-dashboard-page-wrapper">
 
-      {/* Header/Hero Section - Updated with consistent class names */}
+      {/*  Updated with consistent class names */}
       <header className="hero-section car-details-header">
         <div className="hero-content">
           <h1>Find Your Next Adventure</h1>

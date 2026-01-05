@@ -1,0 +1,100 @@
+1. Project Overview
+
+The Car Rental Management System is a web-based application designed to streamline the process of renting cars for customers and managing car listings for owners. The project addresses the inefficiencies in manual car rental processes, including booking management, availability tracking, and invoice generation.
+
+The system allows customers to browse available cars, view detailed information, book vehicles, and generate invoices. Car owners can manage their car listings, monitor bookings, and update booking statuses. Additionally, the system incorporates a wishlist feature for customers to save their preferred cars.
+
+
+2. Requirements / Functionalities
+
+The project meets the following requirements and functionalities:
+
+For Customers:
+
+Browse available cars using filters (location, type, price).
+
+View detailed car information, including images and specifications.
+
+Add cars to a wishlist for future consideration.
+
+Book cars and view booking history.
+
+Generate PDF invoices for bookings using jsPDF.
+
+Secure authentication and profile management using JWT.
+
+For Car Owners:
+
+Add, update, or remove car listings with images stored in Cloudinary.
+
+View and manage bookings for their cars.
+
+Update booking statuses (Pending, Confirmed, Ongoing, Completed, Cancelled).
+
+System Features:
+
+Secure login and registration.
+
+Role-based access control (Customer, Owner, Admin).
+
+Responsive design for both desktop and mobile users.
+
+
+
+
+3. Technologies Used
+
+Frontend:
+
+React, React Router, React Icons, React-Leaflet, Custom CSS
+
+Backend:
+
+Node.js, Express.js, JWT authentication, bcryptjs, CORS
+
+Database & Storage:
+
+MongoDB, Mongoose, Cloudinary
+
+Utilities & Libraries:
+
+Axios, jsPDF
+
+
+
+4. Significance / Novelty
+
+The project improves the car rental process by integrating multiple features into a single platform:
+
+Real-time booking management for car owners.
+
+Interactive maps for easy location-based browsing.
+
+Wishlist and PDF invoice generation, enhancing user convenience.
+
+Role-based access control improves security and ensures proper separation of user functionalities.
+
+Provides a fully responsive interface, accessible from any device.
+
+
+5.Future Work
+
+Potential improvements include:
+
+Implementing payment gateway integration for seamless online payments.
+
+Adding dynamic pricing and discount features based on rental duration or demand.
+
+Incorporating real-time notifications for booking status changes.
+
+Adding reviews and ratings for cars and owners.
+
+Enhancing the dashboard with analytics and insights for car owners.
+
+
+
+6. Conclusion
+
+The Car Rental Management System demonstrates a full-stack solution to the challenges of manual car rental management. By leveraging modern technologies like React, Node.js, MongoDB, and JWT authentication, the system provides a secure, responsive, and efficient platform for customers, owners, and administrators.
+
+The project not only simplifies the booking and car management process but also sets a foundation for future enhancements, such as payment integration, analytics, and advanced user interactions.
