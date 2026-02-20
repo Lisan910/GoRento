@@ -47,7 +47,7 @@ const Footer = () => (
     {/* Copyright Strip */}
     <div className="footer-copyright-strip">
       <p>
-        &copy; {new Date().getFullYear()} CarRent Pro. All rights reserved.
+        &copy; {new Date().getFullYear()} GoRento. All rights reserved.
       </p>
     </div>
   </footer>
