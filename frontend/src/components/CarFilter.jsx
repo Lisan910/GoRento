@@ -116,7 +116,7 @@ const CarFilter = ({ onFilterChange }) => {
             <FaSearch className="field-icon" />
             <input 
               type="text" 
-              placeholder="Search by keywords (e.g. Toyota Prius)" 
+              placeholder="      Search by keywords (e.g. Toyota Prius)" 
               value={filters.search}
               onChange={(e) => updateField("search", e.target.value)}
             />
